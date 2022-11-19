@@ -1,28 +1,10 @@
 {
   "devices": [
     {
-      "codename": "sweet",
-      "device_name": "OnePlus 7 ",
-      "device_type": 8,
-      "maintainer": "Ahmed Tohamy (Agmad)"
-    },
-    {
-      "codename": "apollo",
-      "device_name": "Mi 10T",
-      "device_type": 5,
-      "maintainer": "Ahmed Tohamy (Agmad)"
-    },
-    {
-      "codename": "beta",
-      "device_name": "redmi note 10",
-      "device_type": 10,
-      "maintainer": "ben"
-    },
-    {
-      "codename": "beta",
-      "device_name": "redmi note 10",
-      "device_type": 10,
-      "maintainer": "ben"
+      "codename": "codename",
+      "device_name": "Device Name",
+      "device_type": 1,
+      "maintainer": "Maintainer"
     }
   ]
 }
