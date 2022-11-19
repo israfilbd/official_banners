@@ -3,7 +3,7 @@
     {
       "codename": "codename",
       "device_name": "Device Name",
-      "device_type": 1,
+      "device_type": 0,
       "maintainer": "Maintainer"
     }
   ]
