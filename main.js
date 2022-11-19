@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const { exec } = require('child_process')
 
 const data = require('./devices.json')
 const json = data.devices
@@ -221,4 +222,19 @@ viewBox="0 0 1920 1080"
   if (hue > 255) {
     hue = 255
   }
+
+
+  // Converts the created .svg files to .png files 
+  exec(
+    `svgexport ./files/${index + 1}_${e.codename}.svg ./exported_png/${
+      index + 1
+    }_${e.codename}.png`,
+    (err, stdout, stderr) => {
+      if (err) {
+        console.log('error')
+        return
+      }
+      console.log('png exported')
+    }
+  )
 })
