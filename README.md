@@ -34,3 +34,7 @@ npm run start
 ## Output
 - `.svg` files are exported in `./files`
 - `.png` files are exported in `./exported_png`
+
+## Preview 
+
+![1_example](https://user-images.githubusercontent.com/88089607/204087920-b5fa91cf-16e7-4c74-abfc-860dd800757a.png)
