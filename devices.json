@@ -1,10 +1,10 @@
 {
   "devices": [
     {
-      "codename": "codename",
-      "device_name": "Device Name",
-      "device_type": 0,
-      "maintainer": "Maintainer"
+      "codename": "example",
+      "device_name": "Redmi ",
+      "device_type": 6,
+      "maintainer": "Ben 43456"
     }
   ]
 }
