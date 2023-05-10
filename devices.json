@@ -1,10 +1,10 @@
 {
   "devices": [
     {
-      "codename": "example",
-      "device_name": "Redmi ",
-      "device_type": 6,
-      "maintainer": "Ben 43456"
+      "codename": "alioth",
+      "device_name": "Poco F3",
+      "device_type": 12,
+      "maintainer": "Aggelos Savvopoulos (DarkAngelGR)"
     }
   ]
 }
