@@ -1,6 +1,9 @@
 const fs = require('fs')
 const path = require('path')
 
+const readline = require('readline')
+const { exec } = require('child_process')
+
 const data = require('./devices.json')
 const json = data.devices
 
@@ -512,7 +515,7 @@ json.map((e, index) => {
       </defs>
       <title>banner</title>
       <rect id="BG" class="cls-1" width="1920" height="1080" />
-      
+
       ${device_types[e.device_type]}
 
       <g id="EVO_Logo" data-name="EVO Logo">
@@ -582,7 +585,7 @@ json.map((e, index) => {
             points="1543.12 473.88 1543.12 459.62 1577.75 459.62 1577.75 443.14 1543.12 443.14 1543.12 430 1582.43 430 1582.43 412.96 1521.29 412.96 1521.29 490.92 1583.88 490.92 1583.88 473.88 1543.12 473.88"
           />
         </g>
-        
+
         <switch>
         <foreignObject width="1000" height="500" transform="translate(750.6 500) ">
           <p xmlns="http://www.w3.org/1999/xhtml" class="cls-12">
@@ -593,14 +596,62 @@ json.map((e, index) => {
       </g>
     </svg>
 `
-
   // Writes the .svg files
-  fs.writeFile(
-    path.join(__dirname, 'files', `${index + 1}_${e.codename}.svg`),
-    svg_image,
-    (err) => {
-      if (err) throw err
-      console.log('Write complete')
+  let folderPath = path.join(__dirname, 'svg');
+  fs.mkdir(folderPath, { recursive: true }, (err) => {
+    if (err) {
+      console.log(`Error creating svg directory: ${err.message}`);
+      return;
     }
-  )
-})
+
+    fs.writeFile(
+      path.join(folderPath, `${e.codename}.svg`),
+      svg_image,
+      (err) => {
+        if (err) {
+          console.log(`Error writing ${e.codename}.svg: ${err.message}`);
+          return;
+        }
+      }
+    );
+  });
+}); // Close the loop
+
+console.log(`Banners exported to ./svg`);
+
+// User prompt for svgexport
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('Do you want to export SVG banners to PNG? (yes/no): ', (answer) => {
+  rl.close();
+
+  if (answer.toLowerCase() === 'yes') {
+    const pngFolderPath = './png';
+
+    fs.mkdir(pngFolderPath, { recursive: true }, (err) => {
+      if (err) {
+        console.log(`Error creating png directory: ${err.message}`);
+        return;
+      }
+
+      json.map((e, index) => {
+        const svgFilePath = `./svg/${e.codename}.svg`;
+        const pngFilePath = `${pngFolderPath}/${e.codename}.png`;
+
+        exec(`svgexport ${svgFilePath} ${pngFilePath}`, (err, stdout, stderr) => {
+          if (err) {
+            console.log(`Error exporting ${svgFilePath} to PNG: ${err.message}`);
+            return;
+          }
+
+          console.log(`Exported: ${svgFilePath} -> ${pngFilePath}`);
+        });
+      });
+    });
+  } else {
+    console.log('SVG banners will not be exported to PNG.');
+  }
+});

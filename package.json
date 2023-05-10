@@ -1,11 +1,10 @@
 {
-  "name": "automtion-script",
+  "name": "Evolution X update banner generator",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js",
-    "png_convert": "node pngExport.js"
+    "start": "node main.js"
   },
   "author": "",
   "license": "ISC",

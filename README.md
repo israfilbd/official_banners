@@ -1,4 +1,4 @@
-### An automation script for genrating `svg` & `png` release banners for Evolution X telegram channels.
+### A script for generating `svg` & `png` release banners for Evolution X Updates channel.
 
 ## Requirements
 - Node js
@@ -33,13 +33,9 @@ npm install
 ```
 npm run start
 ```
-## Convert .svg images to .png
-```
-npm run png_convert
-```
 ## Output
-- `.svg` files are exported in `./files`
-- `.png` files are exported in `./exported_png`
+- `.svg` files are exported to `./svg`
+- `.png` files are exported to `./png`
 
 ## Preview 
 
