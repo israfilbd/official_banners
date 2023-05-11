@@ -2,6 +2,7 @@
 
 ## Requirements
 - Node js
+- Montserrat font installed (https://fonts.google.com/specimen/Montserrat)
 
 ## Setting up `devices.json` file
 This file is used to generate the benners
@@ -22,7 +23,8 @@ This file is used to generate the benners
 
 ## All `device_type` numbers 
 
-![Artboard 65](https://user-images.githubusercontent.com/88089607/202863338-1a50ab38-1873-46df-94fb-1ef3bb349515.png)
+![Artboard 65](https://github.com/ArberTu474/automtion-script-EvoX-banners/assets/88089607/f3ca0437-3576-45cb-8078-afe41a73915e)
+
 
 ## Run script
 ```
@@ -30,6 +32,10 @@ npm install
 ```
 ```
 npm run start
+```
+## Convert .svg images to .png
+```
+npm run png_convert
 ```
 ## Output
 - `.svg` files are exported in `./files`
