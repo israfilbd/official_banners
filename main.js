@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const { exec } = require('child_process')
 
 const data = require('./devices.json')
 const json = data.devices
@@ -420,6 +419,7 @@ json.map((e, index) => {
           .cls-7,
           .cls-8 {
             fill: #d3d3d3;
+            color: #d3d3d3;
           }
           .cls-8 {
             font-size: 34.7px;
@@ -582,13 +582,14 @@ json.map((e, index) => {
             points="1543.12 473.88 1543.12 459.62 1577.75 459.62 1577.75 443.14 1543.12 443.14 1543.12 430 1582.43 430 1582.43 412.96 1521.29 412.96 1521.29 490.92 1583.88 490.92 1583.88 473.88 1543.12 473.88"
           />
         </g>
-        <text class="cls-12" transform="translate(755.98 576.51) scale(0.97 1)">
-          <tspan class="cls-13" y="0">
-          ${e.device_name}
-
-            <tspan class="cls-16" y="0">${e.codename}</tspan>
-          </tspan>
-        </text>
+        
+        <switch>
+        <foreignObject width="1000" height="500" transform="translate(750.6 500) ">
+          <p xmlns="http://www.w3.org/1999/xhtml" class="cls-12">
+          ${e.device_name} <tspan class="cls-16" y="0">${e.codename}</tspan>
+          </p>
+        </foreignObject>
+      </switch>
       </g>
     </svg>
 `
@@ -600,20 +601,6 @@ json.map((e, index) => {
     (err) => {
       if (err) throw err
       console.log('Write complete')
-    }
-  )
-
-  // Converts the created .svg files to .png files
-  exec(
-    `svgexport ./files/${index + 1}_${e.codename}.svg ./exported_png/${
-      index + 1
-    }_${e.codename}.png`,
-    (err, stdout, stderr) => {
-      if (err) {
-        console.log('png error')
-        return
-      }
-      console.log('png exported')
     }
   )
 })
