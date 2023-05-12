@@ -23,8 +23,7 @@ This file is used to generate the benners
 
 ## All `device_type` numbers 
 
-![Artboard 65](https://github.com/ArberTu474/automtion-script-EvoX-banners/assets/88089607/f3ca0437-3576-45cb-8078-afe41a73915e)
-
+![Github banner](https://github.com/Evolution-X-Devices/official_banners/assets/88089607/23f854e7-dd5e-4a38-b49d-7690bb4252d7)
 
 ## Run script
 ```
