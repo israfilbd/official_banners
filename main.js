@@ -716,28 +716,29 @@ rl.question(
           console.log(`Error creating png directory: ${err.message}`)
           return
         }
+        function processNextItem(index) {
+          if (index >= json.length) {
+            console.log('All banners exported to PNG. Session ended')
+            return
+          }
 
-        json.map((e, index) => {
+          const e = json[index]
           const svgFilePath = `./svg/${e.codename}.svg`
           const pngFilePath = `${pngFolderPath}/${e.codename}.png`
 
-          exec(
-            `svgexport ${svgFilePath} ${pngFilePath}`,
-            (err, stdout, stderr) => {
-              if (err) {
-                console.log(
-                  `Error exporting ${svgFilePath} to PNG: ${err.message}`
-                )
-                return
-              }
-
+          exec(`svgexport ${svgFilePath} ${pngFilePath}`, (err, stdout, stderr) => {
+            if (err) {
+              console.log(`Error exporting ${svgFilePath} to PNG: ${err.message}`)
+            } else {
               console.log(`Exported: ${svgFilePath} -> ${pngFilePath}`)
             }
-          )
-        })
+            processNextItem(index + 1)
+          })
+        }
+        processNextItem(0)
       })
     } else {
-      console.log('SVG banners not exported to PNG.. Session ended')
+      console.log('SVG banners not exported to PNG. Session ended')
     }
   }
 )
