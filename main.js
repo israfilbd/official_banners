@@ -737,7 +737,7 @@ rl.question(
         })
       })
     } else {
-      console.log('SVG banners will not be exported to PNG.')
+      console.log('SVG banners not exported to PNG.. Session ended')
     }
   }
 )
