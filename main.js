@@ -263,8 +263,13 @@ rl.question(
           console.log(`Error creating png directory: ${err.message}`)
           return
         }
+        const numDevices = json.length
+        console.log(`Exporting ${numDevices} banners from SVG to PNG...`)
+
         function processNextItem(index) {
-          if (index >= json.length) {
+          if (index >= numDevices) {
+            readline.clearLine(process.stdout, 0)
+            readline.cursorTo(process.stdout, 0)
             console.log('All banners exported to PNG. Session ended')
             return
           }
@@ -277,11 +282,21 @@ rl.question(
             `svgexport ${svgFilePath} ${pngFilePath}`,
             (err, stdout, stderr) => {
               if (err) {
+                readline.clearLine(process.stdout, 0)
+                readline.cursorTo(process.stdout, 0)
                 console.log(
                   `Error exporting ${svgFilePath} to PNG: ${err.message}`
                 )
               } else {
-                console.log(`Exported: ${svgFilePath} -> ${pngFilePath}`)
+                readline.clearLine(process.stdout, 0)
+                readline.cursorTo(process.stdout, 0)
+                process.stdout.write(
+                  `Progress: [${'█'.repeat(index + 1)}-${'-'.repeat(
+                    numDevices - index - 1
+                  )}] ${((index + 1) * (100 / numDevices)).toFixed(
+                    2
+                  )}% | Exported: ${svgFilePath} -> ${pngFilePath}`
+                )
               }
               processNextItem(index + 1)
             }
