@@ -1,6 +1,6 @@
-### A utility for generating device-specific `svg` & `png` banners for the Evolution X [Updates channel](https://t.me/evolutionxupdates).
+# A utility for generating device-specific `svg` & `png` banners for the Evolution X [Updates channel](https://t.me/evolutionxupdates).
 
-![example](https://raw.githubusercontent.com/Evolution-X-Devices/official_banners/tiramisu/example.png)
+![example](https://raw.githubusercontent.com/Evolution-X-Devices/official_banners/tiramisu/readme_assets/example.png)
 
 ## Dependencies
 - [Node.js](https://nodejs.org/)
@@ -24,16 +24,14 @@ This file is used to generate the banners
 ```
 
 - `device_type` list to choose from:
-![device_types](https://raw.githubusercontent.com/Evolution-X-Devices/official_banners/tiramisu/device_types.png)
+![device_types](https://raw.githubusercontent.com/Evolution-X-Devices/official_banners/tiramisu/readme_assets/device_types.png)
 
 ## Generate banners
 ```
 npm install
-```
-```
 npm run start
-### After running the script, the utility will generate the SVG banners. Upon completion, a prompt will appear asking if you want to export the banners to PNG format.
 ```
+- The utility will generate the SVG banners. Upon completion, a prompt will appear asking if you want to export the SVG banners to PNG.
 
-- `.svg` files are exported to `./svg`
-- `.png` files are exported to `./png`
+- `.svg` banners are exported to `./svg/codename.svg`
+- `.png` banners are exported to `./png/codename.png`
