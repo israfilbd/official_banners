@@ -2,8 +2,30 @@ const fs = require('fs')
 const path = require('path')
 const readline = require('readline')
 const { exec } = require('child_process')
+const chalk = require('chalk')
 
-// importing assets to create the .svg files
+const displayHeader = () => {
+  const headerLines = [
+    chalk.green('==========================================================='),
+    chalk.blue('                                                            '),
+    chalk.blue('      ______            __      __  _                _  __  '),
+    chalk.blue('     / ____/   ______  / /_  __/ /_(_)___  ____     | |/ /  '),
+    chalk.blue('    / __/ | | / / __ \\/ / / / / __/ / __ \\/ __ \\    |   /   '),
+    chalk.blue('   / /___ | |/ / /_/ / / /_/ / /_/ / /_/ / / / /   /   |    '),
+    chalk.blue('  /_____/ |___/\\____/_/\\__,_/\\__/_/\\____/_/ /_/   /_/|_|    '),
+    chalk.blue('                                                            '),
+    chalk.blue('                         #KeepEvolving                      '),
+    chalk.blue('                                                            '),
+    chalk.green('==========================================================='),
+  ]
+
+  console.log(headerLines.join('\n'))
+}
+
+// Show the display header
+displayHeader();
+
+// Importing assets to create the .svg files
 
 // A list of devices illustrations used for the banners
 const device_types = require('./assets/device_types_array.js')
