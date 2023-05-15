@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const readline = require('readline')
 const { exec } = require('child_process')
+const archiver = require('archiver')
 const chalk = require('chalk')
 const sharp = require('sharp')
 
@@ -11,9 +12,13 @@ const displayHeader = () => {
     chalk.blue('                                                            '),
     chalk.blue('      ______            __      __  _                _  __  '),
     chalk.blue('     / ____/   ______  / /_  __/ /_(_)___  ____     | |/ /  '),
-    chalk.blue('    / __/ | | / / __ \\/ / / / / __/ / __ \\/ __ \\    |   /   '),
+    chalk.blue(
+      '    / __/ | | / / __ \\/ / / / / __/ / __ \\/ __ \\    |   /   '
+    ),
     chalk.blue('   / /___ | |/ / /_/ / / /_/ / /_/ / /_/ / / / /   /   |    '),
-    chalk.blue('  /_____/ |___/\\____/_/\\__,_/\\__/_/\\____/_/ /_/   /_/|_|    '),
+    chalk.blue(
+      '  /_____/ |___/\\____/_/\\__,_/\\__/_/\\____/_/ /_/   /_/|_|    '
+    ),
     chalk.blue('                                                            '),
     chalk.blue('                         #KeepEvolving                      '),
     chalk.blue('                                                            '),
@@ -24,7 +29,7 @@ const displayHeader = () => {
 }
 
 // Show the display header
-displayHeader();
+displayHeader()
 
 // Importing assets to create the .svg files
 
@@ -234,8 +239,12 @@ json.map((e, index) => {
         </g>
         <text class="cls-12" transform="translate(755.98 576.51) scale(0.97 1)">
           <tspan class="cls-13" y="0">${e.device_name}</tspan>
-          <tspan class="cls-13" x="0" dy="${e.device_name_line2 ? '1.2em' : '0'}">${e.device_name_line2}</tspan>
-          <tspan class="cls-16" x="0" dy="${e.device_name_line2 || e.codename ? '1.2em' : '0'}">${e.codename}</tspan>
+          <tspan class="cls-13" x="0" dy="${
+            e.device_name_line2 ? '1.2em' : '0'
+          }">${e.device_name_line2}</tspan>
+          <tspan class="cls-16" x="0" dy="${
+            e.device_name_line2 || e.codename ? '1.2em' : '0'
+          }">${e.codename}</tspan>
         </text>
       </g>
     </svg>
@@ -277,6 +286,7 @@ rl.question(
 
     if (answer.toLowerCase() === 'yes') {
       const pngFolderPath = './png'
+      const outputZipPath = `${pngFolderPath}/banners.zip`
 
       fs.mkdir(pngFolderPath, { recursive: true }, (err) => {
         if (err) {
@@ -290,7 +300,30 @@ rl.question(
           if (index >= numDevices) {
             readline.clearLine(process.stdout, 0)
             readline.cursorTo(process.stdout, 0)
-            console.log('All banners exported to PNG. Session ended')
+            console.log('All banners exported to PNG. Zipping...')
+
+            const outputZip = fs.createWriteStream(outputZipPath)
+            const archive = archiver('zip', {
+              zlib: { level: 9 },
+            })
+
+            outputZip.on('close', () => {
+              console.log(
+                `All banners zipped to ${outputZipPath}. Session ended`
+              )
+            })
+
+            archive.on('error', (err) => {
+              throw err
+            })
+
+            archive.pipe(outputZip)
+            archive.glob('**/*.png', {
+              cwd: pngFolderPath,
+              ignore: [],
+            })
+            archive.finalize()
+
             return
           }
 
