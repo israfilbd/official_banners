@@ -4,6 +4,7 @@ const readline = require('readline')
 const { exec } = require('child_process')
 const archiver = require('archiver')
 const chalk = require('chalk')
+const os = require('os')
 const sharp = require('sharp')
 
 const displayHeader = () => {
@@ -300,7 +301,7 @@ for (let i = 0; i < sortedCodenames.length; i += 7) {
 }
 
 rows.forEach((row, index) => {
-  const coloredRow = row.map((codename) => chalk.bold.cyan(codename))
+  const coloredRow = row.map((codename) => chalk.bold.blue(codename))
   console.log(coloredRow.join(', '))
 
   if (index === rows.length - 1 && row.length === 7) {
@@ -308,7 +309,9 @@ rows.forEach((row, index) => {
   }
 })
 
-console.log(`Exported ${numDevices} banners to ${chalk.bold.cyan('./svg')}`)
+console.log(`Exported ${numDevices} banners to ${chalk.bold.cyan('SVG')}`)
+
+let completedExports = 0
 
 // User prompt for png export
 const rl = readline.createInterface({
@@ -322,14 +325,15 @@ rl.question(
     ' banners to ' +
     chalk.bold.green('PNG') +
     '? (yes/no): ',
-  (answer) => {
+  async (answer) => {
     rl.close()
 
     if (answer.toLowerCase() === 'yes') {
       const pngFolderPath = './png'
       const outputZipPath = `${pngFolderPath}/banners.zip`
+      const numCPUs = os.cpus().length;
 
-      fs.mkdir(pngFolderPath, { recursive: true }, (err) => {
+      fs.mkdir(pngFolderPath, { recursive: true }, async (err) => {
         if (err) {
           console.log(`Error creating png directory: ${err.message}`)
           return
@@ -337,76 +341,70 @@ rl.question(
         console.log(
           `Exporting ${numDevices} banners from ${chalk.bold.cyan(
             'SVG'
-          )} to ${chalk.bold.green('PNG')}...`
+          )} to ${chalk.bold.green('PNG')} on ${numCPUs} threads...`
         )
 
-        function processNextItem(index) {
-          if (index >= numDevices) {
-            readline.clearLine(process.stdout, 0)
-            readline.cursorTo(process.stdout, 0)
-            console.log(
-              `All banners exported to ${chalk.bold.green('PNG')}. Zipping...`
-            )
-            const outputZip = fs.createWriteStream(outputZipPath)
-            const archive = archiver('zip', {
-              zlib: { level: 9 },
-            })
+        let completedExports = 0
 
-            outputZip.on('close', () => {
-              console.log(
-                `All banners zipped to ${chalk.bold.green(
-                  outputZipPath
-                )}. Session ended`
-              )
-            })
-
-            archive.on('error', (err) => {
-              throw err
-            })
-
-            archive.pipe(outputZip)
-            archive.glob('**/*.png', {
-              cwd: pngFolderPath,
-              ignore: [],
-            })
-            archive.finalize()
-
-            return
-          }
-
-          const e = json[index]
+        const processItem = async (e) => {
           const svgFilePath = `./svg/${e.codename}.svg`
           const pngFilePath = `${pngFolderPath}/${e.codename}.png`
 
-          // Use sharp to export SVG to PNG
-          sharp(svgFilePath)
-            .png()
-            .toFile(pngFilePath, (err) => {
-              if (err) {
-                readline.clearLine(process.stdout, 0)
-                readline.cursorTo(process.stdout, 0)
+          try {
+            await sharp(svgFilePath).png().toFile(pngFilePath)
+            completedExports++
+            readline.clearLine(process.stdout, 0)
+            readline.cursorTo(process.stdout, 0)
+            process.stdout.write(
+              `[${chalk.bold.green(
+                '█'.repeat(completedExports)
+              )}-${'-'.repeat(numDevices - completedExports)}] ${(
+                completedExports *
+                (100 / numDevices)
+              ).toFixed(2)}%`
+            )
+            if (completedExports === numDevices) {
+              readline.clearLine(process.stdout, 0)
+              readline.cursorTo(process.stdout, 0)
+              console.log(
+                `All banners exported to ${chalk.bold.green('PNG')}. Zipping...`
+              )
+
+              const outputZip = fs.createWriteStream(outputZipPath)
+              const archive = archiver('zip', {
+                zlib: { level: 9 },
+              })
+
+              outputZip.on('close', () => {
                 console.log(
-                  `${chalk.bold.red('Error exporting')} ${chalk.bold.cyan(
-                    svgFilePath
-                  )} ${chalk.bold.red('to')} PNG: ${err.message}`
+                  `Zip archive exported to ${chalk.bold.green('PNG')}. Session ended`
                 )
-              } else {
-                readline.clearLine(process.stdout, 0)
-                readline.cursorTo(process.stdout, 0)
-                process.stdout.write(
-                  `[${chalk.bold.green('█'.repeat(index + 1))}-${'-'.repeat(
-                    numDevices - index - 1
-                  )}] ${((index + 1) * (100 / numDevices)).toFixed(
-                    2
-                  )}% | Exported: ${chalk.cyan.bold(
-                    svgFilePath
-                  )} -> ${chalk.bold.green(pngFilePath)}`
-                )
-              }
-              processNextItem(index + 1)
-            })
+              })
+
+              archive.on('error', (err) => {
+                throw err
+              })
+
+              archive.pipe(outputZip)
+              archive.glob('**/*.png', {
+                cwd: pngFolderPath,
+                ignore: [],
+              })
+              archive.finalize()
+            }
+          } catch (err) {
+            console.log(
+              `${chalk.bold.red('Error exporting')} ${chalk.bold.cyan(
+                svgFilePath
+              )} ${chalk.bold.red('to')} PNG: ${err.message}`
+            )
+          }
         }
-        processNextItem(0)
+
+        // process SVGs in parallel in chunks of numCPUs
+        for (let i = 0; i < numDevices; i += numCPUs) {
+          await Promise.all(json.slice(i, i + numCPUs).map(processItem))
+        }
       })
     } else {
       console.log(
