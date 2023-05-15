@@ -32,7 +32,7 @@ This file is used to generate the banners
 npm install
 npm run start
 ```
-- The utility will generate the SVG banners. Upon completion, a prompt will appear asking if you want to export the SVG banners to PNG.
+- The utility will generate the SVG banners and list all the codenames. Upon completion, a prompt will appear asking if you want to export the SVG banners to PNG.
 
 - `.svg` banners are exported to `./svg/codename.svg`
-- `.png` banners are exported to `./png/codename.png`
+- `.png` banners are exported to `./png/codename.png ` & `./png/banners.zip `

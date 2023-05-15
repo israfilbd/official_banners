@@ -8,21 +8,39 @@ const sharp = require('sharp')
 
 const displayHeader = () => {
   const headerLines = [
-    chalk.green('==========================================================='),
-    chalk.blue('                                                            '),
-    chalk.blue('      ______            __      __  _                _  __  '),
-    chalk.blue('     / ____/   ______  / /_  __/ /_(_)___  ____     | |/ /  '),
-    chalk.blue(
+    chalk.bold.green(
+      '==========================================================='
+    ),
+    chalk.bold.blue(
+      '                                                            '
+    ),
+    chalk.bold.blue(
+      '      ______            __      __  _                _  __  '
+    ),
+    chalk.bold.blue(
+      '     / ____/   ______  / /_  __/ /_(_)___  ____     | |/ /  '
+    ),
+    chalk.bold.blue(
       '    / __/ | | / / __ \\/ / / / / __/ / __ \\/ __ \\    |   /   '
     ),
-    chalk.blue('   / /___ | |/ / /_/ / / /_/ / /_/ / /_/ / / / /   /   |    '),
-    chalk.blue(
+    chalk.bold.blue(
+      '   / /___ | |/ / /_/ / / /_/ / /_/ / /_/ / / / /   /   |    '
+    ),
+    chalk.bold.blue(
       '  /_____/ |___/\\____/_/\\__,_/\\__/_/\\____/_/ /_/   /_/|_|    '
     ),
-    chalk.blue('                                                            '),
-    chalk.blue('                         #KeepEvolving                      '),
-    chalk.blue('                                                            '),
-    chalk.green('==========================================================='),
+    chalk.bold.blue(
+      '                                                            '
+    ),
+    chalk.bold.blue(
+      '                         #KeepEvolving                      '
+    ),
+    chalk.bold.blue(
+      '                                                            '
+    ),
+    chalk.bold.green(
+      '==========================================================='
+    ),
   ]
 
   console.log(headerLines.join('\n'))
@@ -270,8 +288,27 @@ json.map((e, index) => {
     )
   })
 }) // Close the loop
+const codenames = json.map((e) => e.codename)
+const numDevices = json.length
+const sortedCodenames = codenames.sort((a, b) =>
+  a.localeCompare(b, undefined, { sensitivity: 'base' })
+)
 
-console.log(`Banners exported to ./svg`)
+const rows = []
+for (let i = 0; i < sortedCodenames.length; i += 7) {
+  rows.push(sortedCodenames.slice(i, i + 7))
+}
+
+rows.forEach((row, index) => {
+  const coloredRow = row.map((codename) => chalk.bold.cyan(codename))
+  console.log(coloredRow.join(', '))
+
+  if (index === rows.length - 1 && row.length === 7) {
+    console.log()
+  }
+})
+
+console.log(`Exported ${numDevices} banners to ${chalk.bold.cyan('./svg')}`)
 
 // User prompt for png export
 const rl = readline.createInterface({
@@ -280,7 +317,11 @@ const rl = readline.createInterface({
 })
 
 rl.question(
-  'Do you want to export SVG banners to PNG? (yes/no): ',
+  'Do you want to export ' +
+    chalk.bold.cyan('SVG') +
+    ' banners to ' +
+    chalk.bold.green('PNG') +
+    '? (yes/no): ',
   (answer) => {
     rl.close()
 
@@ -293,15 +334,19 @@ rl.question(
           console.log(`Error creating png directory: ${err.message}`)
           return
         }
-        const numDevices = json.length
-        console.log(`Exporting ${numDevices} banners from SVG to PNG...`)
+        console.log(
+          `Exporting ${numDevices} banners from ${chalk.bold.cyan(
+            'SVG'
+          )} to ${chalk.bold.green('PNG')}...`
+        )
 
         function processNextItem(index) {
           if (index >= numDevices) {
             readline.clearLine(process.stdout, 0)
             readline.cursorTo(process.stdout, 0)
-            console.log('All banners exported to PNG. Zipping...')
-
+            console.log(
+              `All banners exported to ${chalk.bold.green('PNG')}. Zipping...`
+            )
             const outputZip = fs.createWriteStream(outputZipPath)
             const archive = archiver('zip', {
               zlib: { level: 9 },
@@ -309,7 +354,9 @@ rl.question(
 
             outputZip.on('close', () => {
               console.log(
-                `All banners zipped to ${outputZipPath}. Session ended`
+                `All banners zipped to ${chalk.bold.green(
+                  outputZipPath
+                )}. Session ended`
               )
             })
 
@@ -339,17 +386,21 @@ rl.question(
                 readline.clearLine(process.stdout, 0)
                 readline.cursorTo(process.stdout, 0)
                 console.log(
-                  `Error exporting ${svgFilePath} to PNG: ${err.message}`
+                  `${chalk.bold.red('Error exporting')} ${chalk.bold.cyan(
+                    svgFilePath
+                  )} ${chalk.bold.red('to')} PNG: ${err.message}`
                 )
               } else {
                 readline.clearLine(process.stdout, 0)
                 readline.cursorTo(process.stdout, 0)
                 process.stdout.write(
-                  `Progress: [${'█'.repeat(index + 1)}-${'-'.repeat(
+                  `[${chalk.bold.green('█'.repeat(index + 1))}-${'-'.repeat(
                     numDevices - index - 1
                   )}] ${((index + 1) * (100 / numDevices)).toFixed(
                     2
-                  )}% | Exported: ${svgFilePath} -> ${pngFilePath}`
+                  )}% | Exported: ${chalk.cyan.bold(
+                    svgFilePath
+                  )} -> ${chalk.bold.green(pngFilePath)}`
                 )
               }
               processNextItem(index + 1)
@@ -358,7 +409,11 @@ rl.question(
         processNextItem(0)
       })
     } else {
-      console.log('SVG banners not exported to PNG. Session ended')
+      console.log(
+        chalk.bold.keyword('orange')(
+          'SVG banners not exported to PNG. Session ended'
+        )
+      )
     }
   }
 )
