@@ -15,6 +15,7 @@ This file is used to generate the banners
     {
       "codename": "raphael",
       "device_name": "Mi 9T Pro / Redmi K20 Pro",
+      "device_name_line2": "",
       "device_type": 0,
       "maintainer": "Joey Huab (Stallix)"
     }

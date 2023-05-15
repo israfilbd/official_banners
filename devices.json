@@ -3,390 +3,455 @@
     {
       "codename": "X01BD",
       "device_name": "Zenfone Max Pro M2",
+      "device_name_line2": "",
       "device_type": 1,
       "maintainer": "Sonal Singh"
     },
     {
       "codename": "Z01R",
       "device_name": "Zenfone 5Z",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Aryan Arora"
     },
     {
       "codename": "walleye",
       "device_name": "Pixel 2",
+      "device_name_line2": "",
       "device_type": 4,
       "maintainer": "Asriadi Rahim"
     },
     {
       "codename": "taimen",
       "device_name": "Pixel 2 XL",
+      "device_name_line2": "",
       "device_type": 4,
       "maintainer": "Asriadi Rahim"
     },
     {
       "codename": "blueline",
       "device_name": "Pixel 3",
+      "device_name_line2": "",
       "device_type": 11,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "crosshatch",
       "device_name": "Pixel 3 XL",
+      "device_name_line2": "",
       "device_type": 13,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "sargo",
       "device_name": "Pixel 3a",
+      "device_name_line2": "",
       "device_type": 11,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "bonito",
       "device_name": "Pixel 3a XL",
+      "device_name_line2": "",
       "device_type": 11,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "sunfish",
       "device_name": "Pixel 4a",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "lahaina"
     },
     {
       "codename": "redfin",
       "device_name": "Pixel 5",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Sukrut Kelkar"
     },
     {
       "codename": "oriole",
       "device_name": "Pixel 6",
+      "device_name_line2": "",
       "device_type": 1,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "raven",
       "device_name": "Pixel 6 Pro",
+      "device_name_line2": "",
       "device_type": 1,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "bluejay",
       "device_name": "Pixel 6a",
+      "device_name_line2": "",
       "device_type": 1,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "panther",
       "device_name": "Pixel 7",
+      "device_name_line2": "",
       "device_type": 1,
       "maintainer": "CannedShroud"
     },
     {
       "codename": "cheetah",
       "device_name": "Pixel 7 Pro",
+      "device_name_line2": "",
       "device_type": 1,
       "maintainer": "CannedShroud"
     },
     {
       "codename": "zippo",
       "device_name": "Z6 Pro",
+      "device_name_line2": "",
       "device_type": 5,
       "maintainer": "Chema Funtan"
     },
     {
       "codename": "enchilada",
       "device_name": "OnePlus 6",
+      "device_name_line2": "",
       "device_type": 7,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "fajita",
       "device_name": "OnePlus 6T",
+      "device_name_line2": "",
       "device_type": 6,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "guacamoleb",
       "device_name": "OnePlus 7",
+      "device_name_line2": "",
       "device_type": 6,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "guacamole",
       "device_name": "OnePlus 7 Pro",
+      "device_name_line2": "",
       "device_type": 0,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "hotdogb",
       "device_name": "OnePlus 7T",
+      "device_name_line2": "",
       "device_type": 6,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "hotdog",
       "device_name": "OnePlus 7T Pro",
+      "device_name_line2": "",
       "device_type": 0,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "instantnoodle",
       "device_name": "OnePlus 8",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "instantnoodlep",
       "device_name": "OnePlus 8 Pro",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "kebab",
       "device_name": "OnePlus 8T",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "lemonade",
       "device_name": "OnePlus 9",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "lemonadep",
       "device_name": "OnePlus 9 Pro",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "lemonades",
       "device_name": "OnePlus 9R",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Anierin Bliss"
     },
     {
       "codename": "denniz",
       "device_name": "OnePlus Nord 2 5G",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "lahaina"
     },
     {
       "codename": "RMX2170",
       "device_name": "Realme 7 Pro",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Mayur Varde"
     },
     {
       "codename": "RMX2020",
       "device_name": "Realme C3 / Narzo 10A",
+      "device_name_line2": "",
       "device_type": 6,
       "maintainer": "Koushik Dey"
     },
     {
       "codename": "RMX3371",
-      "device_name": "Q5 Pro / GT Neo 3T",
+      "device_name": "Q5 Pro/GT Neo 3T",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Abhishek Shukla"
     },
     {
       "codename": "RMX199X",
       "device_name": "X2",
+      "device_name_line2": "",
       "device_type": 5,
       "maintainer": "RJ RAIJIN(𝕳𝖊𝖝𝖊𝖓𝖟𝖎𝖗𝖐𝖊𝖑)"
     },
     {
       "codename": "bladerunner",
       "device_name": "X50 Pro 5G",
+      "device_name_line2": "",
       "device_type": 12,
       "maintainer": "Gaganpreet Singh"
     },
     {
       "codename": "bladerunner_48m",
       "device_name": "X50 Pro 5G Play",
+      "device_name_line2": "",
       "device_type": 12,
       "maintainer": "Gaganpreet Singh"
     },
     {
       "codename": "crownlte",
       "device_name": "Galaxy Note 9",
+      "device_name_line2": "",
       "device_type": 9,
       "maintainer": "Pham Nguyen Gia Khiem (Cyder)"
     },
     {
       "codename": "starlte",
       "device_name": "Galaxy S9",
+      "device_name_line2": "",
       "device_type": 10,
       "maintainer": "Pham Nguyen Gia Khiem (Cyder)"
     },
     {
       "codename": "star2lte",
       "device_name": "Galaxy S9+",
+      "device_name_line2": "",
       "device_type": 10,
       "maintainer": "Pham Nguyen Gia Khiem (Cyder)"
     },
     {
       "codename": "tissot",
       "device_name": "Mi A1",
+      "device_name_line2": "",
       "device_type": 11,
       "maintainer": "Joey Huab (Stallix)"
     },
     {
       "codename": "cepheus",
       "device_name": "Mi 9",
+      "device_name_line2": "",
       "device_type": 5,
       "maintainer": "Chema Funtan"
     },
     {
       "codename": "davinci",
-      "device_name": "Mi 9T / Redmi K20",
+      "device_name": "Mi 9T/Redmi K20",
+      "device_name_line2": "",
       "device_type": 0,
       "maintainer": "Ahmed Fouad"
     },
     {
       "codename": "raphael",
-      "device_name": "Mi 9T Pro / Redmi K20 Pro",
+      "device_name": "Mi 9T Pro/Redmi K20 Pro",
+      "device_name_line2": "",
       "device_type": 0,
       "maintainer": "Joey Huab (Stallix)"
     },
     {
       "codename": "pyxis",
       "device_name": "Mi 9 Lite",
+      "device_name_line2": "",
       "device_type": 6,
       "maintainer": "CSSABLACK"
     },
     {
       "codename": "umi",
       "device_name": "Mi 10",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Slaw Handzlik (yarpiin)"
     },
     {
       "codename": "cmi",
       "device_name": "Mi 10 Pro",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Slaw Handzlik (yarpiin)"
     },
     {
       "codename": "apollo",
       "device_name": "Mi 10T",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Ahmed Tohamy"
     },
     {
       "codename": "monet",
       "device_name": "Mi 10 Lite",
+      "device_name_line2": "",
       "device_type": 6,
       "maintainer": "Mikairyuu Shuumi"
     },
     {
       "codename": "venus",
       "device_name": "Mi 11",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Joey Huab (Stallix)"
     },
     {
       "codename": "mars",
       "device_name": "Mi 11 Pro",
+      "device_name_line2": "",
       "device_type": 3,
       "maintainer": "Flower Sea (Flower0208)"
     },
     {
       "codename": "polaris",
       "device_name": "Mi Mix 2S",
+      "device_name_line2": "",
       "device_type": 9,
       "maintainer": "Chenyang Zhong"
     },
     {
       "codename": "beryllium",
       "device_name": "POCO F1",
+      "device_name_line2": "",
       "device_type": 8,
       "maintainer": "Tejas Singh"
     },
     {
       "codename": "alioth",
       "device_name": "POCO F3",
+      "device_name_line2": "",
       "device_type": 1,
       "maintainer": "Aggelos Savvopoulos (DarkAngelGR)"
     },
     {
       "codename": "munch",
       "device_name": "POCO F4",
+      "device_name_line2": "",
       "device_type": 1,
       "maintainer": "Akash Kakkar (akashk07)"
     },
     {
       "codename": "phoenix",
-      "device_name": "Redmi K30 / POCO X2",
+      "device_name": "Redmi K30/POCO X2",
+      "device_name_line2": "",
       "device_type": 4,
       "maintainer": "Chiranth Chiru"
     },
     {
       "codename": "vayu",
       "device_name": "POCO X3 Pro",
+      "device_name_line2": "",
       "device_type": 1,
       "maintainer": "Fikri A. (elizabethangelalorenza)"
     },
     {
       "codename": "veux",
-      "device_name": "POCO X4 Pro 5G / Redmi Note 11E Pro / Redmi Note 11 Pro 5G / Redmi Note 11 Pro+ 5G",
+      "device_name": "POCO X4 Pro 5G/Redmi Note 11E Pro/",
+      "device_name_line2": "Note 11 Pro 5G/Note 11 Pro+ 5G",
       "device_type": 1,
       "maintainer": "Ashish Jaswal (jaswal_ashish11)"
     },
     {
       "codename": "mi439",
-      "device_name": "Redmi 7A / Redmi 8 / Redmi 8A / Redmi 8A Dual",
+      "device_name": "Redmi 7A/8/8A/8A Dual",
+      "device_name_line2": "",
       "device_type": 6,
       "maintainer": "Janak Niraula (janakniraula_2017)"
     },
     {
       "codename": "mido",
-      "device_name": "Redmi Note 4 / Redmi Note 4X",
+      "device_name": "Redmi Note 4/Note 4X",
+      "device_name_line2": "",
       "device_type": 11,
       "maintainer": "Nalinish Ranjan"
     },
     {
       "codename": "tulip",
       "device_name": "Redmi Note 6 Pro",
+      "device_name_line2": "",
       "device_type": 8,
       "maintainer": "Lê Hồng Đức"
     },
     {
       "codename": "lavender",
-      "device_name": "Redmi Note 7 / Redmi Note 7S",
+      "device_name": "Redmi Note 7/Note 7S",
+      "device_name_line2": "",
       "device_type": 5,
       "maintainer": "Omar Mohamed (Coptan)"
     },
     {
       "codename": "violet",
       "device_name": "Redmi Note 7 Pro",
+      "device_name_line2": "",
       "device_type": 5,
       "maintainer": "Mir Yasin Ali"
     },
     {
       "codename": "ginkgo",
       "device_name": "Redmi Note 8",
+      "device_name_line2": "",
       "device_type": 5,
       "maintainer": "Tejas Singh"
     },
     {
       "codename": "begonia",
       "device_name": "Redmi Note 8 Pro",
+      "device_name_line2": "",
       "device_type": 6,
       "maintainer": "Shamik"
     },
     {
       "codename": "sweet",
-      "device_name": "Redmi Note 10 Pro / Redmi Note 10 Pro Max",
+      "device_name": "Redmi Note 10 Pro/10 Pro Max",
+      "device_name_line2": "",
       "device_type": 1,
       "maintainer": "Zaid Khan (@zaidkhan0997)"
     },
     {
       "codename": "rosemary",
       "device_name": "Redmi Note 10S",
+      "device_name_line2": "",
       "device_type": 1,
       "maintainer": "Beru Kobayashi"
     }

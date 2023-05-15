@@ -3,6 +3,7 @@ const path = require('path')
 const readline = require('readline')
 const { exec } = require('child_process')
 const chalk = require('chalk')
+const sharp = require('sharp')
 
 const displayHeader = () => {
   const headerLines = [
@@ -231,14 +232,11 @@ json.map((e, index) => {
             points="1543.12 473.88 1543.12 459.62 1577.75 459.62 1577.75 443.14 1543.12 443.14 1543.12 430 1582.43 430 1582.43 412.96 1521.29 412.96 1521.29 490.92 1583.88 490.92 1583.88 473.88 1543.12 473.88"
           />
         </g>
-
-        <switch>
-        <foreignObject width="1000" height="500" transform="translate(750.6 500) ">
-          <p xmlns="http://www.w3.org/1999/xhtml" class="cls-12">
-          ${e.device_name} <tspan class="cls-16" y="0">${e.codename}</tspan>
-          </p>
-        </foreignObject>
-      </switch>
+        <text class="cls-12" transform="translate(755.98 576.51) scale(0.97 1)">
+          <tspan class="cls-13" y="0">${e.device_name}</tspan>
+          <tspan class="cls-13" x="0" dy="${e.device_name_line2 ? '1.2em' : '0'}">${e.device_name_line2}</tspan>
+          <tspan class="cls-16" x="0" dy="${e.device_name_line2 || e.codename ? '1.2em' : '0'}">${e.codename}</tspan>
+        </text>
       </g>
     </svg>
 `
@@ -266,7 +264,7 @@ json.map((e, index) => {
 
 console.log(`Banners exported to ./svg`)
 
-// User prompt for svgexport
+// User prompt for png export
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -300,9 +298,10 @@ rl.question(
           const svgFilePath = `./svg/${e.codename}.svg`
           const pngFilePath = `${pngFolderPath}/${e.codename}.png`
 
-          exec(
-            `svgexport ${svgFilePath} ${pngFilePath}`,
-            (err, stdout, stderr) => {
+          // Use sharp to export SVG to PNG
+          sharp(svgFilePath)
+            .png()
+            .toFile(pngFilePath, (err) => {
               if (err) {
                 readline.clearLine(process.stdout, 0)
                 readline.cursorTo(process.stdout, 0)
@@ -321,8 +320,7 @@ rl.question(
                 )
               }
               processNextItem(index + 1)
-            }
-          )
+            })
         }
         processNextItem(0)
       })
