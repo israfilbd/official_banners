@@ -18,14 +18,14 @@
       "codename": "walleye",
       "device_name": "Pixel 2",
       "device_name_line2": "",
-      "device_type": 4,
+      "device_type": 15,
       "maintainer": "Asriadi Rahim"
     },
     {
       "codename": "taimen",
       "device_name": "Pixel 2 XL",
       "device_name_line2": "",
-      "device_type": 4,
+      "device_type": 16,
       "maintainer": "Asriadi Rahim"
     },
     {
