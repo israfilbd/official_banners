@@ -425,7 +425,7 @@
       "device_name": "Redmi Note 7 Pro",
       "device_name_line2": "",
       "device_type": 5,
-      "maintainer": "Mir Yasin Ali"
+      "maintainer": "Mohammad Kibria"
     },
     {
       "codename": "ginkgo",
@@ -454,6 +454,13 @@
       "device_name_line2": "",
       "device_type": 1,
       "maintainer": "Beru Kobayashi"
+    },
+    {
+      "codename": "marble",
+      "device_name": "POCO F5 / Redmi Note 12 Turbo",
+      "device_name_line2": "",
+      "device_type": 1,
+      "maintainer": "Joey Huab | Shamik"
     }
   ]
 }
