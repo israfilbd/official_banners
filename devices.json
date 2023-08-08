@@ -278,7 +278,7 @@
       "device_name": "Mi A1",
       "device_name_line2": "",
       "device_type": 11,
-      "maintainer": "Joey Huab (Stallix)"
+      "maintainer": "Joey"
     },
     {
       "codename": "cepheus",
@@ -299,7 +299,7 @@
       "device_name": "Mi 9T Pro/Redmi K20 Pro",
       "device_name_line2": "",
       "device_type": 0,
-      "maintainer": "Joey Huab (Stallix)"
+      "maintainer": "Joey"
     },
     {
       "codename": "pyxis",
@@ -341,7 +341,7 @@
       "device_name": "Mi 11",
       "device_name_line2": "",
       "device_type": 3,
-      "maintainer": "Joey Huab (Stallix)"
+      "maintainer": "Joey"
     },
     {
       "codename": "mars",
@@ -467,7 +467,7 @@
       "device_name": "POCO F5 / Redmi Note 12 Turbo",
       "device_name_line2": "",
       "device_type": 1,
-      "maintainer": "Joey Huab | Shamik"
+      "maintainer": "Joey"
     }
   ]
 }
