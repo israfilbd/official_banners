@@ -113,6 +113,13 @@
       "maintainer": "Sickyman_678"
     },
     {
+      "codename": "tangorpro",
+      "device_name": "Pixel Tablet",
+      "device_name_line2": "",
+      "device_type": 1,
+      "maintainer": "Anierin Bliss"
+    },
+    {
       "codename": "zippo",
       "device_name": "Z6 Pro",
       "device_name_line2": "",
