@@ -1,5 +1,5 @@
 # A utility for generating device-specific `svg` & `png` banners for the Evolution X [Updates channel](https://t.me/evolutionxupdates).
-![example](https://raw.githubusercontent.com/Evolution-X-Devices/official_banners/tiramisu/readme_assets/example.png)
+![example](https://raw.githubusercontent.com/Evolution-X-Devices/official_banners/master/readme_assets/example.png)
 
 ## Dependencies
 - [Node.js](https://nodejs.org/)
@@ -24,10 +24,10 @@ This file is used to generate the banners
 ```
 
 - `device_type` list to choose from:
-![device_types](https://raw.githubusercontent.com/Evolution-X-Devices/official_banners/tiramisu/readme_assets/device_types.png)
+![device_types](https://raw.githubusercontent.com/Evolution-X-Devices/official_banners/master/readme_assets/device_types.png)
 
 ## Generate banners
-![Example output](https://raw.githubusercontent.com/Evolution-X-Devices/official_banners/tiramisu/readme_assets/example_output.gif)
+![Example output](https://raw.githubusercontent.com/Evolution-X-Devices/official_banners/master/readme_assets/example_output.gif)
 ```
 npm install
 npm run start
