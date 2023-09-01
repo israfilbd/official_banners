@@ -246,6 +246,13 @@
       "maintainer": "RJ RAIJIN(𝕳𝖊𝖝𝖊𝖓𝖟𝖎𝖗𝖐𝖊𝖑)"
     },
     {
+      "codename": "lunaa",
+      "device_name": "GT Master Edition",
+      "device_name_line2": "",
+      "device_type": 2,
+      "maintainer": "Partha Sarathi"
+    },
+    {
       "codename": "bladerunner",
       "device_name": "X50 Pro 5G",
       "device_name_line2": "",
