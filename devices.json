@@ -482,6 +482,13 @@
       "device_name_line2": "",
       "device_type": 1,
       "maintainer": "Joey"
+    },
+    {
+      "codename": "redwood",
+      "device_name": "POCO X5 Pro",
+      "device_name_line2": "",
+      "device_type": 1,
+      "maintainer": "Priyanshu Jangid"
     }
   ]
 }
