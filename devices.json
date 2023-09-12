@@ -116,7 +116,7 @@
       "codename": "tangorpro",
       "device_name": "Pixel Tablet",
       "device_name_line2": "",
-      "device_type": 1,
+      "device_type": 17,
       "maintainer": "Anierin Bliss"
     },
     {
@@ -274,6 +274,20 @@
       "maintainer": "Pham Nguyen Gia Khiem (Cyder)"
     },
     {
+      "codename": "gta4xl",
+      "device_name": "Galaxy Tab S6 Lite (LTE)",
+      "device_name_line2": "",
+      "device_type": 17,
+      "maintainer": "Harshit Sinha (PhatWalrus)"
+    },
+    {
+      "codename": "gta4xlwifi",
+      "device_name": "Galaxy Tab S6 (WiFi)",
+      "device_name_line2": "",
+      "device_type": 17,
+      "maintainer": "Harshit Sinha (PhatWalrus)"
+    },
+    {
       "codename": "starlte",
       "device_name": "Galaxy S9",
       "device_name_line2": "",
@@ -426,6 +440,13 @@
       "device_name_line2": "",
       "device_type": 11,
       "maintainer": "Nalinish Ranjan"
+    },
+    {
+      "codename": "nabu",
+      "device_name": "Xiaomi Tab 5",
+      "device_name_line2": "",
+      "device_type": 17,
+      "maintainer": "Eleazer Ennis"
     },
     {
       "codename": "tulip",
