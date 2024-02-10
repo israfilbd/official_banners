@@ -1,11 +1,11 @@
 {
   "devices": [
     {
-      "codename": "X01BD",
-      "device_name": "Zenfone Max Pro M2",
+      "codename": "RMX1901",
+      "device_name": "Realme X",
       "device_name_line2": "",
-      "device_type": 1,
-      "maintainer": "Sonal Singh"
+      "device_type": 0,
+      "maintainer": "м∂ ιѕяαƒιℓ"
     },
     {
       "codename": "Z01R",
